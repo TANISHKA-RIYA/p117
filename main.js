@@ -28,26 +28,23 @@ function updatecanvas(){
     document.getElementById("sketchtodraw").innerHTML=Element_of_array;
 }
 function draw(){
-    check_sketch()
-    if (drawn_sketch == sketch){
-        answer_holder = "set";
-        score = score + 10;
-        document.getElementById("scoreno").innerHTML=score;
-    }
-}
-function check_sketch(){
     timer_counter++;
     document.getElementById("timerno").innerHTML=timer_counter;
     console.log(timer_counter);
     if (timer_counter > 400){
         timer_counter = 0;
-        if (timer_counter == 400){
-            timer_check = "completed";
-        }
+        timer_check = "completed";
     }
     if (timer_check == "completed"||answer_holder == "set"){
         timer_check = "";
         answer_holder = "";
         updatecanvas()
+    }
+}
+function check_sketch(){
+    if (drawn_sketch == sketch){
+        answer_holder = "set";
+        score = score + 10;
+        document.getElementById("scoreno").innerHTML=score;
     }
 }
